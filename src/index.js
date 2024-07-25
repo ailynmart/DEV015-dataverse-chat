@@ -1,15 +1,24 @@
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
+import { setRootEl, setRoutes, onURLChange } from './router.js';
+import home from './views/home.js';
+import chat from './views/chat.js';
+import apiKey from './views/apiKey.js';
 
-/*
-import Example from './views/Example.js';
-
-Ejemplo de definición de rutas:
-
+//Ejemplo de rutas:
 const routes = {
-    "/": Example,
-    ...
-}
-*/
+    "/": home ,
+    "/chat": chat,//lo que este dentro de view debomos llamarlo aqui y arriba en las importaciones
+    "/apiKey": apiKey,
+
+  };
+  
+  setRoutes(routes);//asignar las routes
+// Handle initial URL load hito1.5 Set the root element where views will be rendered
+  window.addEventListener("DOMContentLoaded", () => {
+  setRootEl(document.getElementById("#root"));// set root element
+  onURLChange(window.location); // invoke onURLChange 
+  });
+
 
 /*
 TODO:
@@ -18,7 +27,7 @@ TODO:
 3.- Invocar el router para renderizar la vista correcta.
 */
 // src/index.js
-import { setRootEl, setRoutes, onURLChange } from './router';
+/*import { setRootEl, setRoutes, onURLChange } from './router';
 import Home from './views/Home';
 import Example from './views/Example.js';
 
@@ -38,4 +47,4 @@ setRootEl(rootElement);
 setRoutes(routes);
 
 // Gestiona la carga de la página inicial
-onURLChange();
+onURLChange();*/

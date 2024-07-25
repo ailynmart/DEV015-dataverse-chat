@@ -1,18 +1,18 @@
 // src/router.js
 
-let rootEl = null;
-let routes = {};
+let ROUTES = {};
+let rootEl ;
 
 export const setRootEl = (el) => {
-  rootEl = el;
+  rootEl = el;// assign rootEl
 };
 
-export const setRoutes = (routeMap) => {
-  routes = routeMap;
+export const setRoutes = (routes) => {
+  ROUTES = routes;// assign ROUTES
 };
 
 export const renderView = (view) => {
-  rootEl.innerHTML = '';
+  rootEl.innerHTML = "";// clear the root element RAIZ
   rootEl.appendChild(view());
 };
 
