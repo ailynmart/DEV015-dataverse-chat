@@ -4,18 +4,21 @@ import home from './views/home.js';
 import chat from './views/chat.js';
 import apiKey from './views/apiKey.js';
 
+
+// Obtén el elemento raíz
+const rootElement = document.getElementById('root');
 //Ejemplo de rutas:
 const routes = {
     "/": home ,
-    "/chat": chat,//lo que este dentro de view debomos llamarlo aqui y arriba en las importaciones
+    "/chat": chat,//lo que este dentro de view debemos llamarlo aqui y arriba en las importaciones
     "/apiKey": apiKey,
 
-  };
+  }; 
   
   setRoutes(routes);//asignar las routes
 // Handle initial URL load hito1.5 Set the root element where views will be rendered
   window.addEventListener("DOMContentLoaded", () => {
-  setRootEl(document.getElementById("#root"));// set root element
+  setRootEl(rootElement);// set root element
   onURLChange(window.location); // invoke onURLChange 
   });
 
