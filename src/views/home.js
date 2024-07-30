@@ -6,7 +6,7 @@ import { filterData, sortData,
 computeAverageSpiciness,
 computeHottestDish,
 computeMildestDish,
-computeSpicinessLevels } from "../lib/dataFunctions";
+computeSpicinessLevels } from "../lib/dataFunctions.js";
 
   export function Home() {
     const homeDiv = document.createElement('div');
@@ -18,6 +18,7 @@ computeSpicinessLevels } from "../lib/dataFunctions";
     homeDiv.appendChild(cardElemen);
 
     //¿? por preguntar como se harian las funciones de datafuncion se 
+
 
 
 

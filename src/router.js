@@ -16,7 +16,7 @@ export const setRoutes = (routes) => {
   // assign ROUTES
   ROUTES = routes;
 };
-
+//HITO3.CREACION .3
 const queryStringToObject = (queryString) => {//location.search EXTRAE el QUERYSTRING de la pagina
   
   const urlParams = new URLSearchParams (queryString);// convert query string to URLSearchParams
@@ -37,11 +37,15 @@ const renderView = (pathname, props={}) => { //props son los search params
   
   rootEl.appendChild(componentHtml);// add the view element to the DOM root element(APPENCHILD)
 }; 
-
-//export const navigateTo = (pathname, props={}) => {
+//HITO3.CREACION .3
+export const navigateTo = (pathname, props={}) => {
+  const propsUrl = new URLSearchParams(props);
+  const URL =  `${pathname}?${propsUrl.toString()}`;
   // update window history with pushState
+  window.history.pushState({}, "", URL); 
   // render the view with the pathname and props
-//}
+  return renderView(pathname, props);
+};
 
 export const onURLChange = (location) => {
   // parse the location for the pathname and search params(analizar la ubicación del pathname ylos parámetros de búsqueda)
@@ -54,7 +58,7 @@ export const onURLChange = (location) => {
   renderView(pathnameLocat,paramsObject);
 };
 
-
+console.log(ROUTES);
 /*/ src/router.js
 
 let ROUTES = {};

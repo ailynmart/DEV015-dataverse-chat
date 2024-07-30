@@ -5,12 +5,13 @@ import chat from './views/chat.js';
 import apiKey from './views/apiKey.js';
 
 
-// Obtén el elemento raíz
+// Obténemos el elemento raíz
 const rootElement = document.getElementById('root');
 //Ejemplo de rutas:
 const routes = {
+  //clave : valor  -->claves son las rutas y los valores son las funciones que se ejecutarán cuando esas rutas se visiten.
     "/": home ,
-    "/chat": chat,//lo que este dentro de view debemos llamarlo aqui y arriba en las importaciones
+    "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
     "/apiKey": apiKey,
 
   }; 
