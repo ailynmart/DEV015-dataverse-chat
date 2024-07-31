@@ -1,54 +1,15 @@
-// En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 import { setRootEl, setRoutes, onURLChange } from './router.js';
-import home from './views/home.js';
-import chat from './views/chat.js';
-import apiKey from './views/apiKey.js';
+import { Home } from './views/home.js';
+import { ChatIndividual } from './views/chatIndividual.js';
+import { ApiKeyInput } from './views/apikKey.js';
 
+const root = document.getElementById('root');
+setRootEl(root);
 
-// Obténemos el elemento raíz
-const rootElement = document.getElementById('root');
-//Ejemplo de rutas:
-const routes = {
-  //clave : valor  -->claves son las rutas y los valores son las funciones que se ejecutarán cuando esas rutas se visiten.
-    "/": home ,
-    "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
-    "/apiKey": apiKey,
-
-  }; 
-  
-  setRoutes(routes);//asignar las routes
-// Handle initial URL load hito1.5 Set the root element where views will be rendered
-  window.addEventListener("DOMContentLoaded", () => {
-  setRootEl(rootElement);// set root element
-  onURLChange(window.location); // invoke onURLChange 
-  });
-
-
-/*
-TODO:
-1.- Definir rutas en router.
-2.- Pasar "root element" a router.
-3.- Invocar el router para renderizar la vista correcta.
-*/
-// src/index.js
-/*import { setRootEl, setRoutes, onURLChange } from './router';
-import Home from './views/Home';
-import Example from './views/Example.js';
-
-// Define las rutas de tu aplicación
-const routes = {
+setRoutes({
   '/': Home,
-  // Agrega otras rutas aquí, por ejemplo:
-  // '/about': About,
-  // '/contact': Contact,
-};
+  '/chat/:id': (params) => ChatIndividual({ id: params.id }),
+  '/api-key': apikKey,
+});
 
-// Obtén el elemento raíz
-const rootElement = document.getElementById('root');
-
-// Configura el elemento raíz y las rutas
-setRootEl(rootElement);
-setRoutes(routes);
-
-// Gestiona la carga de la página inicial
-onURLChange();*/
+onURLChange();

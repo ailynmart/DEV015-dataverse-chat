@@ -8,6 +8,4 @@ export const header =() => {
 `;
 return elemtHeader;
 };
-
-   
-    //aun falta
+export default header;
