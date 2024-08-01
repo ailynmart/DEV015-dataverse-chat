@@ -1,8 +1,9 @@
+//Archivo principal que inicializa la aplicación y el enrutador.
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
 import { setRootEl, setRoutes, onURLChange } from './router.js';
 import home from './views/home.js';
 import chat from './views/chat.js';
-import apiKey from './views/apiKey.js';
+import apiKey from './views/apikKey.js';
 
 
 // Obténemos el elemento raíz

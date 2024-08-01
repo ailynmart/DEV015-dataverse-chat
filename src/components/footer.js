@@ -6,7 +6,7 @@ const footer = () => {
       `;
   
     return footerElement;
-    //console.log(footer); como poder ver si esta funcionando?
+    
   };
   
   export default footer;
