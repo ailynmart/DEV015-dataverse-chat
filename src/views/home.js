@@ -1,32 +1,43 @@
 import header from "../components/header.js";
-import footer from "../components/footer.js";
+//import footer from "../components/footer.js";
 import divfiltros from "../components/div.js";
-import card from "../components/card.js";
+import cards  from "../components/card.js";
 import data from "../data/dataset.js";
-import { filterData, sortData,
+/*import { filterData, sortData,
 computeAverageSpiciness,
 computeHottestDish,
 computeMildestDish,
-computeSpicinessLevels } from "../lib/dataFunctions.js";
+computeSpicinessLevels } from "../lib/dataFunctions.js";*/
 
   export function Home() {
     const homeDiv = document.createElement('div');
     //...header
-    const headerElemen = header();
-    homeDiv.appendChild(headerElemen);
+    homeDiv.appendChild(header);
     // div
-    const divElemen = divfiltros();
-    homeDiv.appendChild(divElemen);
+    homeDiv.appendChild(divfiltros);
     //...card
     //const cardElemen = card();
     //homeDiv.appendChild(cardElemen);
-    const filtroPedido = homeDiv.querySelector('[data-testid="select-filter"]');
-    filtroPedido.addEventListener("change", (e) => {          
-      const platoPrincipal = e.target.value;                 
+    //main DV + div.js
+    const filtroPedido = document.querySelector('[data-testid="select-filter"]');
+    let filtrosPlato = data;
+    function filtroEvent(event) {          
+      const platoPrincipal = event .target.value;                 
       filtrosPlato = filterData(data, "mainField", platoPrincipal);     
       rootH.innerHTML = "";    
       rootH.appendChild(renderItems(filtrosPlato));
-    });
+    };
+    filtroPedido.addEventListener("change", filtroEvent);
+
+
+
+
+    const cardsDatos = cards(data);
+    homeDiv.appendChild(cardsDatos);
+
+
+
+
     /*¿? por preguntar como se harian las funciones de datafuncion se 
     dataFunctions....SI COPIAMOS Y PEGAMOS EL MAIN.JS del DV PEROOO 
     NO TENEMOS UN DOM para llamar al documente.queryselector?¡que estan en main.js
@@ -64,7 +75,7 @@ computeSpicinessLevels } from "../lib/dataFunctions.js";
    // homeDiv.appendChild(footerElem);
    
 
-    return homeDiv
+    return homeDiv;
   };
   export default Home;
   

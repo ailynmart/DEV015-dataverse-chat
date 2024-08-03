@@ -8,6 +8,7 @@ let rootEl;
 export const setRootEl = (el) => {
   // assign rootEl
   rootEl = el;
+  return rootEl;
 };
 
 export const setRoutes = (routes) => {
@@ -15,9 +16,10 @@ export const setRoutes = (routes) => {
   // optional Throw errors if routes doesn't define an /error route
   // assign ROUTES
   ROUTES = routes;
+  return ROUTES;
 };
 //HITO3.CREACION .3
-const queryStringToObject = (queryString) => {//location.search EXTRAE el QUERYSTRING de la pagina
+export const queryStringToObject = (queryString) => {//location.search EXTRAE el QUERYSTRING de la pagina
   
   const urlParams = new URLSearchParams (queryString);// convert query string to URLSearchParams
   
@@ -27,15 +29,15 @@ const queryStringToObject = (queryString) => {//location.search EXTRAE el QUERYS
   
 };
 
-const renderView = (pathname, props={}) => { //props son los search params
+const renderView = (pathname, props = {}) => { //props son los search params
   
-  rootEl.innerHTML = "";// clear the root element RAIZ
+  rootEl.innerHTML = ""; // clear the root element RAIZ
   // find the correct view in ROUTES for the pathname (encuentre la vista correcta en ROUTES para pathname)
-  const viewRoutes = ROUTES[pathname] || ROUTES["/error"];  // in case not found render the error view
+  const viewRoute = ROUTES[pathname] || ROUTES["/error"];  // in case not found render the error view
   
-  const componentHtml = viewRoutes(props);// render the correct view passing the value of props
-  
-  rootEl.appendChild(componentHtml);// add the view element to the DOM root element(APPENCHILD)
+  const componentHtml = viewRoute(props); // render the correct view passing the value of props
+  //agregamos viewrouter al component
+  return rootEl.appendChild(componentHtml);// add the view element to the DOM root element(APPENCHILD)
 }; 
 //HITO3.CREACION .3
 export const navigateTo = (pathname, props={}) => {
@@ -47,18 +49,26 @@ export const navigateTo = (pathname, props={}) => {
   return renderView(pathname, props);
 };
 
-export const onURLChange = (location) => {
+export const onUrlChange = () => {
+  const { pathname, search } = window.location;
+  //console.log("cambio de url", pathname, search);
+  const props = queryStringToObject(search);
+  renderView(pathname, props);
+};
+
+
+/*export const onURLChange = (location) => {
   // parse the location for the pathname and search params(analizar la ubicación del pathname ylos parámetros de búsqueda)
-  const pathnameLocat = location.pathname;
+  const pathnameLocat = window.location.pathname;
   //parse the location for the search params
   const paramSearch = location.search;
   // convert the search params to an object with queryToObject
   const paramsObject = queryStringToObject(paramSearch);
   // render the view with the pathname and object
-  renderView(pathnameLocat,paramsObject);
-};
+  return renderView(pathnameLocat,paramsObject);
+};*/
 
-console.log(ROUTES);
+
 /*/ src/router.js
 
 let ROUTES = {};
