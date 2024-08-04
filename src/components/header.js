@@ -1,3 +1,4 @@
+//import { navigateTo } from "../router.js";
 export const header =() => {
     // Crear el elemento del encabezado
     const elemtHeader = document.createElement('header');

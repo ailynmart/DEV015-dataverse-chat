@@ -1,9 +1,9 @@
-import header from "../components/header.js";
-import { getApiKey, setApiKey } from "../lib/apiKey.js";
+//import header from "../components/header.js";
+//import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
 
 function apikKey() {
-    const vistaApi = document.createElement('div');
+   const vistaApi = document.createElement('div');
     vistaApi.appendChild(header());
     
     vistaApi.innerHTML = `
@@ -32,8 +32,8 @@ function apikKey() {
     localStorage.removeItem("apikeiy");
     //inputApiKey.value ="";
   });
-  
   return vistaApi;
+  
 
 
 };

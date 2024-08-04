@@ -1,6 +1,6 @@
 export const divfiltros = () => {
-    const divFiltros = document.createElement('div')
-    divFiltros.innerHTML = ` 
+    const divFiltross = document.createElement('div')
+    divFiltross.innerHTML = ` 
    <div class="flex-container">
       <label for="filtro-pedido">TIPO DE PEDIDO</label>
       <select data-testid="select-filter" name="pedido" id="filtro-pedido">
@@ -47,6 +47,6 @@ export const divfiltros = () => {
     <ul id="data-list">  
     </ul>
       `;
-return divFiltros;
+return divFiltross;
 };
 export default divfiltros;

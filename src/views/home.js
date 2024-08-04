@@ -1,21 +1,23 @@
 import header from "../components/header.js";
-//import footer from "../components/footer.js";
+import footer from "../components/footer.js";
 import divfiltros from "../components/div.js";
-import cards  from "../components/card.js";
+import card  from "../components/card.js";
 import data from "../data/dataset.js";
-/*import { filterData, sortData,
+import { filterData, sortData,
 computeAverageSpiciness,
 computeHottestDish,
 computeMildestDish,
-computeSpicinessLevels } from "../lib/dataFunctions.js";*/
+computeSpicinessLevels } from "../lib/dataFunctions.js";
 
   export function Home() {
     const homeDiv = document.createElement('div');
     //...header
-    homeDiv.appendChild(header);
+    const headerElemen = header();
+    homeDiv.appendChild(headerElemen);
     // div
-    homeDiv.appendChild(divfiltros);
-    //...card
+    const divElemen = divfiltros();
+    homeDiv.appendChild(divElemen);
+    /*//...card
     //const cardElemen = card();
     //homeDiv.appendChild(cardElemen);
     //main DV + div.js
@@ -29,10 +31,11 @@ computeSpicinessLevels } from "../lib/dataFunctions.js";*/
     };
     filtroPedido.addEventListener("change", filtroEvent);
 
+*/
 
 
-
-    const cardsDatos = cards(data);
+    //si pongo esto solo aparece letras no las tarjetas
+    const cardsDatos = card(data);
     homeDiv.appendChild(cardsDatos);
 
 
