@@ -13,7 +13,7 @@ const routes = {
   //clave : valor  -->claves son las rutas y los valores son las funciones que se ejecutarán cuando esas rutas se visiten.
     "/": home ,
     "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
-    "/aPikey":aPikey,
+    "/api-key" : aPikey,
 
   }; 
   

@@ -14,6 +14,10 @@ export const header =() => {
     </div>
 
   `;
+  const bottonApikey = elemtHeader.querySelector("#buttonApiKey");
+  bottonApikey.addEventListener("click", () => {
+    navigateTo("/api-key")
+  })
   /*
  const bottonHome = elemtHeader.querySelector("#buttonHome");
  //const bottonIndividual = elemtHeader.querySelector("#buttonIndividual");
