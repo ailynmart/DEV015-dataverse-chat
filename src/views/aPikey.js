@@ -1,8 +1,8 @@
 //import header from "../components/header.js";
-//import { getApiKey, setApiKey } from "../lib/apiKey.js";
+import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
 
-function apikKey() {
+export function aPikey() {
    const vistaApi = document.createElement('div');
     vistaApi.appendChild(header());
     
@@ -23,8 +23,8 @@ function apikKey() {
 
   guardarBoton.addEventListener("click", () => {
     const valueApiKEY = inputApiKey.value;
-    setApiKey(valueApiKEY); //DEVUELVE UNDEFINDED
-    getApiKey("apikeiy"); //DEVUELVE LA APIKEY DEL INPUT por revisar mas creo??
+    setApiKey(valueApiKEY);
+    getApiKey("apikeiy"); //DEVOLVERIA LA APIKEY DEL INPUT por revisar mas creo??
   });
 
   borrarBoton.addEventListener("click", () => {
@@ -32,13 +32,13 @@ function apikKey() {
     localStorage.removeItem("apikeiy");
     //inputApiKey.value ="";
   });
+  
   return vistaApi;
   
 
-
 };
 
-export default apikKey;
+export default aPikey;
 
 //PARA EL INPUT HITO3.MANEJOAPIKEY
 /* <form id="apiKeyForm">

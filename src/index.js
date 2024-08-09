@@ -3,7 +3,7 @@
 import { setRootEl, setRoutes, onUrlChange} from './router.js';
 import home from './views/home.js';
 import chat from './views/chat.js';
-//import apikKey from './views/apikKey.js';
+import aPikey from './views/aPikey.js';
 
 
 // Obténemos el elemento raíz
@@ -13,7 +13,7 @@ const routes = {
   //clave : valor  -->claves son las rutas y los valores son las funciones que se ejecutarán cuando esas rutas se visiten.
     "/": home ,
     "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
-    //"/apikKey":apikKey,
+    "/aPikey":aPikey,
 
   }; 
   
@@ -24,10 +24,10 @@ const routes = {
   onUrlChange(window.location); // invoke onURLChange
   });
 
-  /*window.addEventListener("popstate",() => {
+  window.addEventListener("popstate",() => {
     onUrlChange();
 
-  });*/
+  });
 
 
 /*

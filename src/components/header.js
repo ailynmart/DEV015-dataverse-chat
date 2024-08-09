@@ -8,15 +8,30 @@ export const header =() => {
     </div>
      <div class='container-button-header' id='container-buttons'>
       <button class="buttonHeader" id="buttonHome"> HOME</button>
-      <button class="buttonHeader" id="buttonChatGrupal"> MEXICO PICANTE CHAT</button>
+      <button class="buttonHeader" id="buttonIndividual"> MEXICO PICANTE CHAT</button>
       <button class="buttonHeader" id="buttonApiKey"> API KEY</button>
     
     </div>
-       
-   
-    
-`;
-return elemtHeader;
+
+  `;
+  /*
+ const bottonHome = elemtHeader.querySelector("#buttonHome");
+ //const bottonIndividual = elemtHeader.querySelector("#buttonIndividual");
+ const bottonApikey = elemtHeader.querySelector("#buttonApiKey");*/
+
+
+ /* bottonHome.addEventListener("click", () => {
+    navigateTo("/")
+  }),
+  /*bottonIndividual.addEventListener("click", () => {
+    navigateTo("/panel") DEBEMOS CREAR UN PANEL
+  }),*/
+  /*bottonApikey.addEventListener("click", () => {
+    navigateTo("/aPikey")
+  })*/
+
+
+ return elemtHeader;
 };
 export default header;
    

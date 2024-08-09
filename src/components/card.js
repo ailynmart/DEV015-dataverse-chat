@@ -1,3 +1,4 @@
+//view.js del DV
 export const renderItems = (data) => {
   
   if (!Array.isArray(data)) {
@@ -41,4 +42,10 @@ export const renderItems = (data) => {
   
   return ul;
 };
+
+
+export function updateResult(result) {
+  document.querySelector('#result').textContent = result;
+};
+
 export default renderItems;
