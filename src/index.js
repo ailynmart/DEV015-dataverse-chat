@@ -1,8 +1,9 @@
+//Archivo principal que inicializa la aplicación y el enrutador.
 // En este archivo definirás tus rutas e importarás los componentes que vas a renderizar.
-import { setRootEl, setRoutes, onURLChange } from './router.js';
+import { setRootEl, setRoutes, onUrlChange} from './router.js';
 import home from './views/home.js';
 import chat from './views/chat.js';
-import apiKey from './views/apiKey.js';
+import aPikey from './views/aPikey.js';
 
 
 // Obténemos el elemento raíz
@@ -12,7 +13,7 @@ const routes = {
   //clave : valor  -->claves son las rutas y los valores son las funciones que se ejecutarán cuando esas rutas se visiten.
     "/": home ,
     "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
-    "/apiKey": apiKey,
+    "/api-key" : aPikey,
 
   }; 
   
@@ -20,7 +21,12 @@ const routes = {
 // Handle initial URL load hito1.5 Set the root element where views will be rendered
   window.addEventListener("DOMContentLoaded", () => {
   setRootEl(rootElement);// set root element
-  onURLChange(window.location); // invoke onURLChange 
+  onUrlChange(window.location); // invoke onURLChange
+  });
+
+  window.addEventListener("popstate",() => {
+    onUrlChange();
+
   });
 
 

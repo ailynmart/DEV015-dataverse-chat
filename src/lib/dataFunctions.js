@@ -19,17 +19,17 @@ export const filterData = (data, property, value) => {
   export function computeAverageSpiciness(data) {   
     const totalSpiciness = data.reduce((sum, item) => sum + item.spiciness, 0);     
     return (totalSpiciness / data.length).toFixed(2);                                            
-  }
+  };
   
   // Encuentra el plato más picante
   export function computeHottestDish(data) {
     return data.reduce((hottest, item) => item.spiciness > hottest.spiciness ? item : hottest, data[0]); 
-  }
+  };
   
   // Encuentra el plato menos picante
   export function computeMildestDish(data) {   
     return data.reduce((mildest, item) => item.spiciness < mildest.spiciness ? item : mildest, data[0]); 
-  }
+  };
   
   // Cuenta los niveles de picante
   export function computeSpicinessLevels(data) { 
@@ -39,7 +39,7 @@ export const filterData = (data, property, value) => {
       else levels.hot++; 
       return levels;    
     }, { mild: 0, medium: 0, hot: 0 });
-  }
+  };
   
   
   
