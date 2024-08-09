@@ -25,17 +25,14 @@ export const onURLChange = () => {
   renderView(window.location.pathname + window.location.search);
 };
 
-const matchRoute = (path) => {
-  for (const route in routes) {
-    const regex = new RegExp(`^${route.replace(/:\w+/g, '(\\w+)')}$`);
-    const match = path.match(regex);
-    if (match) {
-      const params = {};
-      route.replace(/:(\w+)/g, (match, key, index) => {
-        params[key] = match[index + 1];
-      });
-      return [route, params];
-    }
+const match = path.match(regex);
+if (match) {
+  const params = {};
+  const keys = route.match(/:(\w+)/g);
+  if (keys) {
+    keys.forEach((key, index) => {
+      params[key.slice(1)] = match[index + 1];
+    });
   }
-  return [null, null];
-};
+  return [route, params];
+}

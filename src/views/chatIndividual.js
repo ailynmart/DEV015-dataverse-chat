@@ -11,20 +11,35 @@ export function ChatIndividual({ id }) {
     <div id="response"></div>
   `;
 
-  viewEl.querySelector('#send').addEventListener('click', async () => {
-    const message = viewEl.querySelector('#message').value;
-    const apiKey = getApiKey();
+  const sendButton = viewEl.querySelector('#send');
+  sendButton.addEventListener('click', async () => {
+    const message = viewEl.querySelector('#message').value.trim();
+    const responseEl = viewEl.querySelector('#response');
+    responseEl.textContent = '';
 
+    if (message === '') {
+      alert('Por favor, escribe un mensaje.');
+      return;
+    }
+
+    const apiKey = getApiKey();
     if (!apiKey) {
       alert('Por favor, introduce una API Key.');
       return;
     }
 
+    sendButton.disabled = true;
+    sendButton.textContent = 'Enviando...';
+
     try {
       const response = await communicateWithOpenAI([{ role: 'user', content: message }]);
-      viewEl.querySelector('#response').textContent = response;
+      responseEl.textContent = response;
     } catch (error) {
+      responseEl.textContent = 'Error al comunicarse con OpenAI. Por favor, intenta nuevamente.';
       console.error('Error:', error);
+    } finally {
+      sendButton.disabled = false;
+      sendButton.textContent = 'Enviar';
     }
   });
 

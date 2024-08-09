@@ -10,3 +10,4 @@ export function ChatGroup() {
   `;
   return viewEl;
 }
+
