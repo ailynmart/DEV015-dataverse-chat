@@ -1,5 +1,5 @@
 //Dentro de apiKey.js, implementa dos funciones esenciales:
-
+//HITO 3.2-Almacenamiento Seguro de la API KEY con Local Storage
 // src/lib/apiKey.js
   // RECUPERA/OBTIENE
 export const getApiKey = () => {

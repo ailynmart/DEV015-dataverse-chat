@@ -1,4 +1,5 @@
 //view.js del DV
+import { navigateTo } from "../router.js";
 export const renderItems = (data) => {
   
   if (!Array.isArray(data)) {
@@ -24,8 +25,12 @@ export const renderItems = (data) => {
     '<p>Lugar de origen: ' + (item.facts.placeOrigen || 'Sin lugar de origen') + '</p>' +
     '<p>Tipo de carne: ' + (item.facts.typeOfMeat || 'Sin tipo de carne') + '</p>' +
     '<p>Categoría: ' + (item.facts.mainField || 'Sin categoría') + '</p>' +
+    '<button class="boton-car"> ver mas </button>' +
   '</div>';
-    
+  const buttonElement = li.querySelector(".boton-car");
+  buttonElement.addEventListener("click", () => {
+    navigateTo("/chat", { id: item.id });
+  });
     
     
 

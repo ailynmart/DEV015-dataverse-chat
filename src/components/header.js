@@ -1,4 +1,4 @@
-//import { navigateTo } from "../router.js";
+import { navigateTo } from "../router.js";
 export const header =() => {
     // Crear el elemento del encabezado
     const elemtHeader = document.createElement('header');
@@ -24,9 +24,9 @@ export const header =() => {
  const bottonApikey = elemtHeader.querySelector("#buttonApiKey");*/
 
 
- /* bottonHome.addEventListener("click", () => {
+  /*bottonHome.addEventListener("click", () => {
     navigateTo("/")
-  }),
+  });
   /*bottonIndividual.addEventListener("click", () => {
     navigateTo("/panel") DEBEMOS CREAR UN PANEL
   }),*/

@@ -1,9 +1,11 @@
-/*CREAMOS EN UNA VISTA el input que permitira ingresar o pegar la API KEY.*/
+/*HITO 3.1- Manejo de la API KEY en la Aplicación 
+CREAMOS EN UNA VISTA el input que permitira ingresar o pegar la API KEY.*/
 import header from "../components/header.js";
 import { getApiKey, setApiKey } from "../lib/apiKey.js";
 
 
 export function aPikey() {
+  document.title = `API KEY`;
    const vistaApi = document.createElement('div');
     vistaApi.appendChild(header());
     

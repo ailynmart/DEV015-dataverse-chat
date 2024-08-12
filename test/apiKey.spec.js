@@ -1,5 +1,5 @@
-//En este archivo, desarrolla los tests correspondientes. Puedes utilizar el siguiente esquema como punto de partida:
-
+/*HITO3.3Pruebas para funciones de API Key --->En este archivo, desarrolla los tests
+ correspondientes. Puedes utilizar el siguiente esquema como punto de partida:*/
 /* test/apiKey.spec.js
 
 import { getApiKey, setApiKey } from '../src/lib/apiKey.js';

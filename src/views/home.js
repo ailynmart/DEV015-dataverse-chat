@@ -68,10 +68,14 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
    
     `; 
     
-    //trae las tarjetars
+    ///trae las tarjetars
     const cardsDatosrender = document.createElement("div"); 
     cardsDatosrender.appendChild(renderItems(data));
     homeDiv.appendChild(cardsDatosrender); 
+    cardsDatosrender.addEventListener('click',() =>{//PREGUNTAR SI DESDE AQUI SE LE PUEDE HACER CLICK A LAS TARJETAS??
+   
+
+    });
 
     let filtrosPlato = data;
 
@@ -107,13 +111,15 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
     });
 
   
-    //...footer
-   // homeDiv.appendChild(footer);
+    
    /*ejemplo de marcia*/
     //homeDiv.appendChild(divFiltross);
     divFiltross.querySelector('#calculationType').addEventListener('change', () =>{ 
      console.log('hola') //renderitems
     } ) ;
+    
+    //...footer
+   // homeDiv.appendChild(footer);
 
 
     return homeDiv;
