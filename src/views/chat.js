@@ -15,22 +15,40 @@ export function chat (props){//obtener un identificador con props ..para renderi
     const elementOPersonaje = data.find((item) => item.id === props.id);
     console.log(elementOPersonaje);
     
-    document.title = `CHAT INDIVIDUAL CON - ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
+    document.title = `Chat con ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
     //creacion de LA ESTRUCTURA DEL CHAT
     const htmlChat = document.createElement('div');
     htmlChat.innerHTML=
     `
     <div class='estilo-tarjeta-chatIndiv' >
-      <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name} </h2>
+     <div class='barra-perfil'>
+        <div class= 'contenedor-titulo'>
+         <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name} </h2>
+        </div>
+        <img class = 'foto-perfil' src='${elementOPersonaje.imageUrl}'>
         <p class ='estilo-shorDescrip'>${elementOPersonaje.shortDescription}</p>
-    </div>
-    <div class="chatUSER-textarea">
-      <textarea class="chat-User" id="chat-usuario" placeholder="ESCRIBE AQUI..."></textarea>
+     </div>
+     <div class="mensajes-delChat" id="mensajedelchat">
+        <!-- Aquí se mostrarán los mensajes -->
+     </div>
+
+      <div class="chatUSER-textarea"> 
+        
+       <textarea class="chat-User" id="chat-usuario" placeholder="ESCRIBE AQUI..."></textarea>
+       <button type="submit">Enviar</button>
+      </div>
       
     </div>
 
 
     `;
+
+    
+
+
+
+
+
     chatVista.appendChild(htmlChat);
     /*NOTAAA
     1..PARA EL INPUT TEXTAREA --FUNCION DE ENVIAR DEBEMOS LLAMAR AL OPENWITHIAI*/

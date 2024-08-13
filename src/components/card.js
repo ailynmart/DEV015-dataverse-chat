@@ -19,20 +19,27 @@ export const renderItems = (data) => {
     '<div>' +
     '<p>Nombre: ' + (item.name || 'Sin nombre') + '</p>' +
     '<p>Descripción corta: ' + (item.shortDescription || 'Sin descripción corta') + '</p>' +
-    '<p>Descripción: ' + (item.description || 'Sin descripción') + '</p>' +
+    
     '<img src="' + (item.imageUrl || '') + '" alt="' + (item.name || 'Imagen sin nombre') + '">' +
+    '<button class="boton-car"> InfoCHAT </button>' +
     '<p>Nivel de picante: ' + (item.facts.nivelSpicy || 'Sin nivel de picante') + '</p>' +
     '<p>Lugar de origen: ' + (item.facts.placeOrigen || 'Sin lugar de origen') + '</p>' +
     '<p>Tipo de carne: ' + (item.facts.typeOfMeat || 'Sin tipo de carne') + '</p>' +
     '<p>Categoría: ' + (item.facts.mainField || 'Sin categoría') + '</p>' +
-    '<button class="boton-car"> ver mas </button>' +
+    
   '</div>';
-  const buttonElement = li.querySelector(".boton-car");
+  const buttonElement = li.querySelector(".boton-car"); //se añadio linea 28 bueno ahora lo pase a linea 24 y se selecciona e hizo eveto para que a cada click a una tarjeta abra un chat
   buttonElement.addEventListener("click", () => {
     navigateTo("/chat", { id: item.id });
   });
+    /*
+    EJEMPLO DE MARIANA
+    const buttonElement = li.querySelector(“.boton”-car);
+    buttonElement.addEventListener("click", () => {
+      navigateTo("/chat", { id: objeto.id });
+    }); */
     
-    
+    // '<p>Descripción: ' + (item.description || 'Sin descripción') + '</p>' +  (---->SE QUITO DE LA LINEA 22
 
     return li;
   });

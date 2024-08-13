@@ -8,7 +8,7 @@ export const header =() => {
     </div>
      <div class='container-button-header' id='container-buttons'>
       <button class="buttonHeader" id="buttonHome"> HOME</button>
-      <button class="buttonHeader" id="buttonIndividual"> MEXICO PICANTE CHAT</button>
+      <button class="buttonHeader" id="buttonGrupal"> CHAT GRUPAL</button>
       <button class="buttonHeader" id="buttonApiKey"> API KEY</button>
     
     </div>
@@ -20,7 +20,7 @@ export const header =() => {
   })
   /*
  const bottonHome = elemtHeader.querySelector("#buttonHome");
- //const bottonIndividual = elemtHeader.querySelector("#buttonIndividual");
+ //const bottonIndividual = elemtHeader.querySelector("#buttonGrupal");
  const bottonApikey = elemtHeader.querySelector("#buttonApiKey");*/
 
 
