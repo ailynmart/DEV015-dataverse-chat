@@ -10,9 +10,7 @@ computeHottestDish,
 computeMildestDish,
 computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
 //import { updateResult } from "../card.js";
-
   export function home() {
-    
     const homeDiv = document.createElement("div");
     //...HEADER
     const headerElemen = header();
@@ -20,7 +18,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
     // trae los selectores LABELS
     const divFiltross = document.createElement('nav');
     homeDiv.appendChild(divFiltross);
-    divFiltross.innerHTML = ` 
+    divFiltross.innerHTML = `
    <div class="flex-container">
       <label for="filtro-pedido">TIPO DE PEDIDO</label>
       <select data-testid="select-filter" name="pedido" id="filtro-pedido">
@@ -31,15 +29,12 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
         <option value="Postres">Postres</option>
         <option value="Salsa y guarniciones">Salsas y Guarniciones</option>
       </select>
-      
-      
       <label for="filtro-picante">NIVEL DE PICANTE</label>
       <select data-testid="select-filterPicante" name="picante" id="filtro-picante">
-        <option value="Alto"> 🌶️🌶️🌶️ </option>
-        <option value="Medio"> 🌶️🌶️</option>
-        <option value="Bajo">🌶️</option>
+        <option value="Alto"> :guindilla::guindilla::guindilla: </option>
+        <option value="Medio"> :guindilla::guindilla:</option>
+        <option value="Bajo">:guindilla:</option>
       </select>
-
       <label for="filtro-alfabetica"> Ordenar de manera </label>
       <select data-testid="select-sort" name="alfabetica" id="filtro-alfabetica">
         <option value="asc">A - Z</option>
@@ -49,9 +44,6 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
      <button data-testid="button-clear">Limpiar Pedido</button>
     <div id="root"></div>
     <div id="resultado-container"></div>
-
-   
-      
     <label for="calculationType">Tipo de Cálculo</label>
     <select id="calculationType" name="calculationType">
       <option value="averageSpiciness">Promedio de picante</option>
@@ -59,31 +51,26 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
       <option value="mildestDish">Platillo menos picante</option>
       <option value="spicinessLevels">Niveles de picante</option>
     </select>
-
     <button id="calculateButton">Calcular</button>
     <div id="result"></div>
-
-    <ul id="data-list">  
+    <ul id="data-list">
     </ul>
-   
-    `; 
-    
-    //trae las tarjetars
-    const cardsDatosrender = document.createElement("div"); 
+    `;
+    ///trae las tarjetars
+    const cardsDatosrender = document.createElement("div");
     cardsDatosrender.appendChild(renderItems(data));
-    homeDiv.appendChild(cardsDatosrender); 
-
+    homeDiv.appendChild(cardsDatosrender);
+     cardsDatosrender.addEventListener('click',() =>{// ya noPREGUNTAR SI DESDE AQUI SE LE PUEDE HACER CLICK A LAS TARJETAS??
+    });
     let filtrosPlato = data;
-
     //filtro plato principal
     divFiltross.querySelector('[data-testid="select-filter"]').addEventListener("change", (e) => {
-      //console.log('cambiar')          
-      const platoPrincipal = e.target.value;                 
-      filtrosPlato = filterData(data, "mainField", platoPrincipal);     
-      homeDiv.innerHTML = "";    
+      //console.log('cambiar')
+      const platoPrincipal = e.target.value;
+      filtrosPlato = filterData(data, "mainField", platoPrincipal);
+      homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(filtrosPlato));
     });
-
     //filtro picante
     divFiltross.querySelector('[data-testid="select-filterPicante"]').addEventListener("change",(e) =>{
       const nivelPicante = e.target.value;
@@ -91,31 +78,46 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
       homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(platosFiltrados));
     });
-
     //filtro ALfabetica
     divFiltross.querySelector('[data-testid="select-filterPicante"]').addEventListener("change",(e) =>{
       const orden = e.target.value;
       const platosOrdenados = sortData(filtrosPlato, "name", orden === "asc");
       homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(platosOrdenados));
-
     });
-
     divFiltross.querySelector('[data-testid="button-clear"]').addEventListener("click",() =>{
       homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(data));
     });
-
-  
-    //...footer
-   // homeDiv.appendChild(footer);
    /*ejemplo de marcia*/
     //homeDiv.appendChild(divFiltross);
-    divFiltross.querySelector('#calculationType').addEventListener('change', () =>{ 
+    divFiltross.querySelector('#calculationType').addEventListener('change', () =>{
      console.log('hola') //renderitems
     } ) ;
-
-
+    //...footer
+   // homeDiv.appendChild(footer);
     return homeDiv;
   };
   export default home;
+/*
+export default () => {
+  const container = document.createElement('div');
+  container.innerHTML = `
+    <h1>Home</h1>
+    <button id="chat-btn">Go to Chat</button>
+    <button id="chat-group-btn">Go to Chat Group</button>
+  `;
+  
+  // Asignar eventos a los botones
+  container.querySelector('#chat-btn').addEventListener('click', () => {
+    window.history.pushState({}, '', '/chat');
+    onUrlChange();
+  });
+
+  container.querySelector('#chat-group-btn').addEventListener('click', () => {
+    window.history.pushState({}, '', '/chat-group');
+    onUrlChange();
+  });
+
+  return container;
+}; */

@@ -1,8 +1,26 @@
 
-export function chatGrupal() {
-    //crearmos la vista
-    const vistaChatGrupal = document.createElement("div");
-    //vistaChatGrupal.classList.add("chat-grupal"); de esta manera creamos una class al css para poder llamarlo en un archivo de chatGrupa.css tal como si estaria en el html lo mismo podemos implementarlo en los demas archivos para el estilo.
-    
+// src/views/chatGrupal.js
+export function chatgrupal() {
+  const container = document.createElement('div');
+ 
+  container.innerHTML = `
+    <h1>Chat Grupal</h1>
+    <button id="home-btn">Back to Home</button>
+    <button id="chat-btn">Go to Chat</button>
+  `;
+  
+  // Asignar eventos a los botones
+  /*container.querySelector('#home-btn').addEventListener('click', () => {
+    window.history.pushState({}, '', '/');
+    onUrlChange();
+  });
 
-}
+  container.querySelector('#chat-group-btn').addEventListener('click', () => {
+    window.history.pushState({}, '', '/chat-grupal');
+    onUrlChange();
+  });*/
+
+
+  return container;
+};
+export default chatgrupal;
