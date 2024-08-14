@@ -14,3 +14,5 @@ y poder interactuar  es esencial realizar una solicitud HTTP a OpenAI. En este p
 export const communicateWithOpenAI = (messages) => {
    //Aquí es donde debes implementar la petición con fetch o axios
 };*/
+//Importa la función para obtener la API KEY desde apiKey.js
+

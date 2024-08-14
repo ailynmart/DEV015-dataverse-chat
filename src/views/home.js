@@ -72,7 +72,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
     const cardsDatosrender = document.createElement("div"); 
     cardsDatosrender.appendChild(renderItems(data));
     homeDiv.appendChild(cardsDatosrender); 
-    cardsDatosrender.addEventListener('click',() =>{//PREGUNTAR SI DESDE AQUI SE LE PUEDE HACER CLICK A LAS TARJETAS??
+     cardsDatosrender.addEventListener('click',() =>{// ya noPREGUNTAR SI DESDE AQUI SE LE PUEDE HACER CLICK A LAS TARJETAS??
    
 
     });

@@ -20,36 +20,50 @@ export function chat (props){//obtener un identificador con props ..para renderi
     const htmlChat = document.createElement('div');
     htmlChat.innerHTML=
     `
-    <div class='estilo-tarjeta-chatIndiv' >
-     <div class='barra-perfil'>
-        <div class= 'contenedor-titulo'>
-         <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name} </h2>
-        </div>
-        <img class = 'foto-perfil' src='${elementOPersonaje.imageUrl}'>
-        <p class ='estilo-shorDescrip'>${elementOPersonaje.shortDescription}</p>
-     </div>
-     <div class="mensajes-delChat" id="mensajedelchat">
-        <!-- Aquí se mostrarán los mensajes -->
-     </div>
-
-      <div class="chatUSER-textarea"> 
+   
+      <div class='barra-perfil'>
+        <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name} </h2>
+        <p class ='estilo-Descripcion'>${elementOPersonaje.description}</p>
         
-       <textarea class="chat-User" id="chat-usuario" placeholder="ESCRIBE AQUI..."></textarea>
-       <button type="submit">Enviar</button>
       </div>
-      
-    </div>
+     
+      <div class= 'contenedor-principal'>
+       <div class ='espacio-delCHAT'>
+            <span class="contacto-status"> 🟢En linea</span>
+           <div class = 'perfil'>
+             <img class = 'foto-perfil' src='${elementOPersonaje.imageUrl}'>
+             <div class= 'descripcion-perfil'>
+               <h4 class= 'nombre-dePERFIL'>${elementOPersonaje.name}</h4>
+               <p class ='estilo-shorDescrip'>${elementOPersonaje.shortDescription}</p>
+             </div>
+           </div>
+           <div id='mensajes'> </div>
+           <div id='chatde-USUARIO'>
+             <textarea class="chat-User" id="textarea-usuario" placeholder="ESCRIBE AQUI..."></textarea>
+              <div id = 'envio-mensaje'>
+                <button type="submit" id="boton-enviar">Enviar</button>
+              </div>
+           </div>
+        </div>
 
+
+      </div>
 
     `;
-
-    
-
-
-
-
-
     chatVista.appendChild(htmlChat);
+    //seleccionando
+    const botonEnviar = chatVista.querySelector("#boton-enviar");
+    const textaUSUARIO = chatVista.querySelector("#textarea-usuario");
+    const areaDEmensajes = chatVista.querySelector("#mensajes");
+
+    function mensajeAÑADIDO() {
+      const userMessage = document.createElement('div');
+      userMessage.innerHTML = textaUSUARIO.value;
+      areaDEmensajes.appendChild(userMessage);
+    };
+
+    botonEnviar.addEventListener("click",mensajeAÑADIDO );
+    
     /*NOTAAA
     1..PARA EL INPUT TEXTAREA --FUNCION DE ENVIAR DEBEMOS LLAMAR AL OPENWITHIAI*/
 

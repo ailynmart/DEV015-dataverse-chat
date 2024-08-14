@@ -4,6 +4,7 @@ const footer = () => {
       <p class="footer"> &copy; by Ailyn y Brigid</p>
       <p class="footer">Bootcamp de Laboratoria DEV015 3° proyecto</p>  
       `;
+      //link git hub ,,linkedik
   
     return footerElement;
     

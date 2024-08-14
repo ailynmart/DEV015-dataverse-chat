@@ -1,39 +1,85 @@
-.estilo-tarjeta-chatIndiv{
+/*.estilo-tarjeta-chatIndiv{
     color: rgb(7, 61, 16);
     background: rgba(0, 0, 0, 0.685);
     margin: 50px;
     
     
-}
+}*/
 .barra-perfil{
-    color: rgb(7, 61, 16);
-  
-   
+    color: rgb(255, 254, 254);
+    background: rgba(0, 0, 0, 0.699);
+    margin: 50px;
    
 }
 .estilo-titledelCHAT{
   
     font-size: 38px;
     letter-spacing: 10px;
-    color: rgb(163, 28, 28);
+    color: rgba(252, 246, 246, 0.856);
     font-family: Georgia;
-    text-shadow: 5px 5px 3px rgb(70, 66, 66);
+    text-shadow: 5px 5px 3px rgb(0, 0, 0);
+    margin: 5PX;
      
     
 }
-.contenedor-titulo{
+.estilo-Descripcion{
+    margin: 8px;
+}
+.contacto-status {
+    background-color: rgba(61, 62, 68, 0.918) ;
+    color: rgb(255, 234, 234);
+    border-radius: 2px;
+    margin:5px ;
+}
+.contenedor-principal{
+    border-color: rgb(214, 6, 6);
+    background-color: rgba(255, 254, 253, 0.363);
+    margin: 50px;
+    padding: 5px;
+    
+    border-radius: 10px;
+    
    
-    text-align: center;
+   
+
+}
+.perfil{
+    margin-left: auto;
+}
+
+.foto-perfil{
+    width: 7rem;
+    height: 8rem;
+    margin: 5px;
+    border-radius: 15px;
+    
+}
+.chat-User{
+    
+    width: 70%;
+    background: transparent;
+    outline: none;
+    color: var(--color-black);
+    font-size: 1rem;
+    padding: 0;
+    resize: none;
+    margin: 5px;
+    padding: 20px;
+    border-color: blue;
+    border-radius: 10px;
 
 }
 
-   
+#mensajes{
+    width:auto;
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 80px 1fr;
     
-
-.foto-perfil{
-    width: 6rem;
-    height: 10rem;
-    margin: 5px;
-    border-radius: 15%;
+    background-color: rgb(217, 217, 233);
+    
+}
+#boton-enviar{
+    margin-left: auto;
 }
 
