@@ -12,7 +12,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
 //import { updateResult } from "../card.js";
 
   export function home() {
-    
+    document.title=`HOME`;
     const homeDiv = document.createElement("div");
     //...HEADER
     const headerElemen = header();

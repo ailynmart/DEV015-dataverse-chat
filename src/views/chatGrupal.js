@@ -6,3 +6,20 @@
     
 
 }*/
+import  header  from "../components/header.js"
+
+export function chatGrupal () {
+  document.title=`CHAT GRUPAL`;
+  const contentHome = document.createElement('div');
+  
+  contentHome.appendChild(header());
+
+  const a = document.createElement('h2');
+  a.innerHTML="BIENVENIDO AL CHAT GRUPAL ENCONTRARAS A TODOS NUESTROS PLATILLO";
+  contentHome.appendChild(a);
+   
+  return contentHome;
+
+}
+
+export default chatGrupal;

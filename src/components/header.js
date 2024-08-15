@@ -16,19 +16,29 @@ export const header =() => {
   `;
   const bottonApikey = elemtHeader.querySelector("#buttonApiKey");
   bottonApikey.addEventListener("click", () => {
-    navigateTo("/api-key")
-  })
+    navigateTo("/api-key");
+  });
+
+  const homeBoton = elemtHeader.querySelector("#buttonHome");
+  homeBoton.addEventListener("click",() =>{
+    navigateTo("/");
+
+  });
+  const grupalBoton = elemtHeader.querySelector("#buttonGrupal");
+  grupalBoton.addEventListener("click",() =>{
+    navigateTo("/chatGrupal");
+
+  });
+
   /*
  const bottonHome = elemtHeader.querySelector("#buttonHome");
  //const bottonIndividual = elemtHeader.querySelector("#buttonGrupal");
  const bottonApikey = elemtHeader.querySelector("#buttonApiKey");*/
 
 
-  /*bottonHome.addEventListener("click", () => {
-    navigateTo("/")
-  });
+
   /*bottonIndividual.addEventListener("click", () => {
-    navigateTo("/panel") DEBEMOS CREAR UN PANEL
+    navigateTo("/cg") DEBEMOS CREAR UN PANEL que ahora es c.grupal¿¿'¿''¡¡
   }),*/
   /*bottonApikey.addEventListener("click", () => {
     navigateTo("/aPikey")
@@ -38,5 +48,3 @@ export const header =() => {
  return elemtHeader;
 };
 export default header;
-   
-    //aun falta

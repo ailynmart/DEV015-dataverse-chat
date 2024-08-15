@@ -4,7 +4,7 @@ import { setRootEl, setRoutes, onUrlChange} from './router.js';
 import home from './views/home.js';
 import chat from './views/chat.js';
 import aPikey from './views/aPikey.js';
-
+import chatGrupal from './views/chatGrupal.js';
 
 // Obténemos el elemento raíz
 const rootElement = document.getElementById('root');
@@ -14,6 +14,7 @@ const routes = {
     "/": home ,
     "/chat": chat,//lo que este dentro de view debemos llamarlo aqui en routes y arriba en las importaciones
     "/api-key" : aPikey,
+    "/chatGrupal" :chatGrupal,
 
   }; 
   
