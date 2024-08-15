@@ -76,6 +76,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
    
 
     });
+    
 
     let filtrosPlato = data;
 
@@ -86,6 +87,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
       filtrosPlato = filterData(data, "mainField", platoPrincipal);     
       homeDiv.innerHTML = "";    
       homeDiv.appendChild(renderItems(filtrosPlato));
+      
     });
 
     //filtro picante
