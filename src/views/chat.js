@@ -5,8 +5,11 @@ desarrolla la vista que te permitirá chatear con los elementos del conjunto de 
   (props) en la función que te llevará a esta vista o recibiendo los datos como search params. */
 import header  from "../components/header.js";
 import data from "../data/dataset.js";
+import { communicateWithOpenAI } from "../lib/openAIApi.js";
+
 
 export function chat (props){//obtener un identificador con props ..para renderizar vista?
+ // communicateWithOpenAI("hola");
     
    
     const chatVista = document.createElement('div');
@@ -62,12 +65,22 @@ export function chat (props){//obtener un identificador con props ..para renderi
       areaDEmensajes.appendChild(userMessage);
     };
 
-    botonEnviar.addEventListener("click",mensajeAÑADIDO );
+    function agregamosREPLY (reply) {
+      const userMessages = document.createElement('div');
+      userMessages.innerHTML = reply;
+      areaDEmensajes.appendChild(userMessages);
+    }
+
+    botonEnviar.addEventListener("click",() => {
+      mensajeAÑADIDO();
+      communicateWithOpenAI(elementOPersonaje, textaUSUARIO.value).then(reply => {
+        agregamosREPLY(reply)
+
+      }) 
+      textaUSUARIO.value='';
+
+    });
+    return chatVista;
+  }
     
-    /*NOTAAA
-    1..PARA EL INPUT TEXTAREA --FUNCION DE ENVIAR DEBEMOS LLAMAR AL OPENWITHIAI*/
-
- return chatVista;
-};
-
 export default chat;
