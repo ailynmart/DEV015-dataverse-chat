@@ -16,7 +16,7 @@ export function chat (props){//obtener un identificador con props ..para renderi
     chatVista.appendChild(header());
       //Vinculamos el id del chat con el objeto correspondiente
     const elementOPersonaje = data.find((item) => item.id === props.id);
-    console.log(elementOPersonaje);
+   // console.log(elementOPersonaje);
     
     document.title = `Chat con ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
     //creacion de LA ESTRUCTURA DEL CHAT
@@ -44,7 +44,7 @@ export function chat (props){//obtener un identificador con props ..para renderi
            <div id='chatde-USUARIO'>
              <textarea class="chat-User" id="textarea-usuario" placeholder="ESCRIBE AQUI..."></textarea>
               <div id = 'envio-mensaje'>
-                <button type="submit" id="boton-enviar">Enviar</button>
+                <button type="submit" id="boton-enviar">Enviar ➤</button>
               </div>
            </div>
         </div>
