@@ -1,0 +1,24 @@
+.side-container{
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
+    background-color: #D9DDE4;
+    justify-self: flex-start;
+    max-height: 95vh;
+    min-height: 95vh;
+    font-family: "Lora", serif;
+    border-radius: 8px;
+    border: solid #6C7C79 2px;
+    margin-left: auto; /* Este ajuste lo coloca en la parte derecha */
+}
+.info-individual{
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom:#6C7C79 solid 1px ;
+}
+.each-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 2%
+}

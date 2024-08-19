@@ -1,5 +1,4 @@
 import { navigateTo } from "../router.js";
-import { onUrlChange } from "../router.js";
 export const header =() => {
     // Crear el elemento del encabezado
     const elemtHeader = document.createElement('header');
@@ -25,11 +24,35 @@ export const header =() => {
   });
   const bottonApikey = elemtHeader.querySelector("#buttonApiKey");
   bottonApikey.addEventListener("click", () => {
-    navigateTo("/api-key")
-    
+    navigateTo("/api-key");
   });
+
+  const homeBoton = elemtHeader.querySelector("#buttonHome");
+  homeBoton.addEventListener("click",() =>{
+    navigateTo("/");
+
+  });
+  const grupalBoton = elemtHeader.querySelector("#buttonGrupal");
+  grupalBoton.addEventListener("click",() =>{
+    navigateTo("/chatGrupal");
+
+  });
+
+  /*
+ const bottonHome = elemtHeader.querySelector("#buttonHome");
+ //const bottonIndividual = elemtHeader.querySelector("#buttonGrupal");
+ const bottonApikey = elemtHeader.querySelector("#buttonApiKey");*/
+
+
+
+  /*bottonIndividual.addEventListener("click", () => {
+    navigateTo("/cg") DEBEMOS CREAR UN PANEL que ahora es c.grupal¿¿'¿''¡¡
+  }),*/
+  /*bottonApikey.addEventListener("click", () => {
+    navigateTo("/aPikey")
+  })*/
+
 
  return elemtHeader;
 };
 export default header;
-    //aun falta

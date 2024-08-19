@@ -1,15 +1,26 @@
+/*.estilo-tarjeta-chatIndiv{
+    color: rgb(7, 61, 16);
+    background: rgba(0, 0, 0, 0.685);
+    margin: 50px;
+    
+    
+}*/
 .barra-perfil{
     color: rgb(255, 254, 254);
     background: rgba(0, 0, 0, 0.699);
     margin: 50px;
+   
 }
 .estilo-titledelCHAT{
+  
     font-size: 38px;
     letter-spacing: 10px;
     color: rgba(252, 246, 246, 0.856);
     font-family: Georgia;
     text-shadow: 5px 5px 3px rgb(0, 0, 0);
     margin: 5PX;
+     
+    
 }
 .estilo-Descripcion{
     margin: 8px;
@@ -25,18 +36,26 @@
     background-color: rgba(255, 254, 253, 0.363);
     margin: 50px;
     padding: 5px;
+    
     border-radius: 10px;
+    
+   
+   
+
 }
 .perfil{
     margin-left: auto;
 }
+
 .foto-perfil{
     width: 7rem;
     height: 8rem;
     margin: 5px;
     border-radius: 15px;
+    
 }
 .chat-User{
+    
     width: 70%;
     background: transparent;
     outline: none;
@@ -48,22 +67,19 @@
     padding: 20px;
     border-color: blue;
     border-radius: 10px;
+
 }
+
 #mensajes{
     width:auto;
     max-width: 80%;
     display: grid;
     grid-template-columns: 80px 1fr;
+    
     background-color: rgb(217, 217, 233);
+    
 }
 #boton-enviar{
     margin-left: auto;
 }
-
-
-
-
-
-
-
 

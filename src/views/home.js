@@ -11,6 +11,7 @@ computeMildestDish,
 computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
 //import { updateResult } from "../card.js";
   export function home() {
+    document.title=`HOME`;
     const homeDiv = document.createElement("div");
     //...HEADER
     const headerElemen = header();
@@ -55,13 +56,19 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
     <div id="result"></div>
     <ul id="data-list">
     </ul>
-    `;
+   
+    `; 
+    
     ///trae las tarjetars
-    const cardsDatosrender = document.createElement("div");
+    const cardsDatosrender = document.createElement("div"); 
     cardsDatosrender.appendChild(renderItems(data));
-    homeDiv.appendChild(cardsDatosrender);
+    homeDiv.appendChild(cardsDatosrender); 
      cardsDatosrender.addEventListener('click',() =>{// ya noPREGUNTAR SI DESDE AQUI SE LE PUEDE HACER CLICK A LAS TARJETAS??
+   
+
     });
+    
+
     let filtrosPlato = data;
     //filtro plato principal
     divFiltross.querySelector('[data-testid="select-filter"]').addEventListener("change", (e) => {
@@ -70,6 +77,7 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
       filtrosPlato = filterData(data, "mainField", platoPrincipal);
       homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(filtrosPlato));
+      
     });
     //filtro picante
     divFiltross.querySelector('[data-testid="select-filterPicante"]').addEventListener("change",(e) =>{
@@ -89,13 +97,19 @@ computeSpicinessLevels*/ } from "../lib/dataFunctions.js";
       homeDiv.innerHTML = "";
       homeDiv.appendChild(renderItems(data));
     });
+
+  
+    
    /*ejemplo de marcia*/
     //homeDiv.appendChild(divFiltross);
     divFiltross.querySelector('#calculationType').addEventListener('change', () =>{
      console.log('hola') //renderitems
     } ) ;
+    
     //...footer
    // homeDiv.appendChild(footer);
+
+
     return homeDiv;
   };
   export default home;

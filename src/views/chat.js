@@ -1,71 +1,82 @@
-/* eslint-disable no-console */
-import header from "../components/header.js";
+
+import header  from "../components/header.js";
 import data from "../data/dataset.js";
+import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
-export function chat(props) {
-  const chatVista = document.createElement('div');
-  chatVista.appendChild(header());
 
-  // Verificar si props.id está definido y es válido
-  if (!props.id) {
-    console.error("ID del personaje no proporcionado");
-    return chatVista;
-  }
-
-  // Vinculamos el id del chat con el objeto correspondiente
-  const elementOPersonaje = data.find((item) => item.id === props.id);
-  if (!elementOPersonaje) {
-    console.error("Personaje no encontrado");
-    return chatVista;
-  }
-  
-  document.title = `Chat con ${elementOPersonaje.name}`;
-
-  // Creación de la estructura del chat
-  const htmlChat = document.createElement('div');
-  htmlChat.innerHTML = `
-    <div class='barra-perfil'>
-      <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name}</h2>
-      <p class ='estilo-Descripcion'>${elementOPersonaje.description}</p>
-    </div>
-    <div class='contenedor-principal'>
-      <div class='espacio-delCHAT'>
-        <span class="contacto-status">🟢 En línea</span>
-        <div class='perfil'>
-          <img class='foto-perfil' src='${elementOPersonaje.imageUrl}' alt='Perfil de ${elementOPersonaje.name}'>
-          <div class='descripcion-perfil'>
-            <h4 class='nombre-dePERFIL'>${elementOPersonaje.name}</h4>
-            <p class='estilo-shorDescrip'>${elementOPersonaje.shortDescription}</p>
-          </div>
-        </div>
-        <div id='mensajes'></div>
-        <div id='chatde-USUARIO'>
-          <textarea class="chat-User" id="textarea-usuario" placeholder="ESCRIBE AQUÍ..."></textarea>
-          <div id='envio-mensaje'>
-            <button type="submit" id="boton-enviar">Enviar</button>
-          </div>
-        </div>
+export function chat (props){//obtener un identificador con props ..para renderizar vista?
+ // communicateWithOpenAI("hola");
+    
+   
+    const chatVista = document.createElement('div');
+    chatVista.appendChild(header());
+      //Vinculamos el id del chat con el objeto correspondiente
+    const elementOPersonaje = data.find((item) => item.id === props.id);
+   // console.log(elementOPersonaje);
+    
+    document.title = `Chat con ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
+    //creacion de LA ESTRUCTURA DEL CHAT
+    const htmlChat = document.createElement('div');
+    htmlChat.innerHTML=
+    `
+   
+      <div class='barra-perfil'>
+        <h2 class='estilo-titledelCHAT'>${elementOPersonaje.name} </h2>
+        <p class ='estilo-Descripcion'>${elementOPersonaje.description}</p>
+        
       </div>
-    </div>
-  `;
-  chatVista.appendChild(htmlChat);
+     
+      <div class= 'contenedor-principal'>
+       <div class ='espacio-delCHAT'>
+            <span class="contacto-status"> 🟢En linea</span>
+           <div class = 'perfil'>
+             <img class = 'foto-perfil' src='${elementOPersonaje.imageUrl}'>
+             <div class= 'descripcion-perfil'>
+               <h4 class= 'nombre-dePERFIL'>${elementOPersonaje.name}</h4>
+               <p class ='estilo-shorDescrip'>${elementOPersonaje.shortDescription}</p>
+             </div>
+           </div>
+           <div id='mensajes'> </div>
+           <div id='chatde-USUARIO'>
+             <textarea class="chat-User" id="textarea-usuario" placeholder="ESCRIBE AQUI..."></textarea>
+              <div id = 'envio-mensaje'>
+                <button type="submit" id="boton-enviar">Enviar ➤</button>
+              </div>
+           </div>
+        </div>
 
-  // Seleccionar elementos del DOM
-  const botonEnviar = chatVista.querySelector("#boton-enviar");
-  const textaUSUARIO = chatVista.querySelector("#textarea-usuario");
-  const areaDEmensajes = chatVista.querySelector("#mensajes");
 
-  // Función para añadir el mensaje
-  function mensajeAÑADIDO() {
-    const userMessage = document.createElement('div');
-    userMessage.textContent = textaUSUARIO.value;
-    areaDEmensajes.appendChild(userMessage);
-    textaUSUARIO.value = ''; // Limpiar el campo de texto
+      </div>
+
+    `;
+    chatVista.appendChild(htmlChat);
+    //seleccionando
+    const botonEnviar = chatVista.querySelector("#boton-enviar");
+    const textaUSUARIO = chatVista.querySelector("#textarea-usuario");
+    const areaDEmensajes = chatVista.querySelector("#mensajes");
+
+    function mensajeAÑADIDO() {
+      const userMessage = document.createElement('div');
+      userMessage.innerHTML = textaUSUARIO.value;
+      areaDEmensajes.appendChild(userMessage);
+    };
+
+    function agregamosREPLY (reply) {
+      const userMessages = document.createElement('div');
+      userMessages.innerHTML = reply;
+      areaDEmensajes.appendChild(userMessages);
+    }
+
+    botonEnviar.addEventListener("click",() => {
+      mensajeAÑADIDO();
+      communicateWithOpenAI(elementOPersonaje, textaUSUARIO.value).then(reply => {
+        agregamosREPLY(reply)
+
+      }) 
+      textaUSUARIO.value='';
+
+    });
+    return chatVista;
   }
-
-  botonEnviar.addEventListener("click", mensajeAÑADIDO);
-
-  return chatVista;
-}
-
+    
 export default chat;

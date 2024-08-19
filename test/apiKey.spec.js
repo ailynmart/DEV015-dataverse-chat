@@ -1,4 +1,4 @@
-i// test/apiKey.spec.js
+// test/apiKey.spec.js
 import { getApiKey, setApiKey } from '../src/lib/apiKey.js';
 
 describe('getApiKey', () => {

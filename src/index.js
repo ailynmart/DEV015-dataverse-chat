@@ -4,6 +4,8 @@ import chat from './views/chat.js';
 import aPikey from './views/aPikey.js';
 import chatGrupal from './views/chatGrupal.js';
 
+
+
 const rootElement = document.getElementById('root');
 
 const routes = {
@@ -16,8 +18,8 @@ const routes = {
 setRoutes(routes);
 
 window.addEventListener('DOMContentLoaded', () => {
-  setRootEl(rootElement);
-  onUrlChange();
+  setRootEl(rootElement);// set root element
+  onUrlChange(window.location); // invoke onURLChange
 });
 
 window.addEventListener('popstate', () => {
