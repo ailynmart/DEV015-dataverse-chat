@@ -1,5 +1,3 @@
-
-// src/views/chatGrupal.js
 export function chatgrupal() {
   const container = document.createElement('div');
  
@@ -10,17 +8,18 @@ export function chatgrupal() {
   `;
   
   // Asignar eventos a los botones
-  /*container.querySelector('#home-btn').addEventListener('click', () => {
+  container.querySelector('#home-btn').addEventListener('click', () => {
     window.history.pushState({}, '', '/');
-    onUrlChange();
+    // eslint-disable-next-line no-undef
+    onUrlChange();  // Asegúrate de que esta función esté definida
   });
 
-  container.querySelector('#chat-group-btn').addEventListener('click', () => {
-    window.history.pushState({}, '', '/chat-grupal');
-    onUrlChange();
-  });*/
-
+  container.querySelector('#chat-btn').addEventListener('click', () => {
+    window.history.pushState({}, '', '/chat');
+    onUrlChange();  // Asegúrate de que esta función esté definida
+  });
 
   return container;
-};
+}
+
 export default chatgrupal;
