@@ -1,16 +1,9 @@
 
-/*export function chatGrupal() {
-    //crearmos la vista
-    const vistaChatGrupal = document.createElement("div");
-    //vistaChatGrupal.classList.add("chat-grupal"); de esta manera creamos una class al css para poder llamarlo en un archivo de chatGrupa.css tal como si estaria en el html lo mismo podemos implementarlo en los demas archivos para el estilo.
-    
-
-}*/
 import  header  from "../components/header.js"
 import data from "../data/dataset.js";
 //import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
-export function chatGrupal (props) {
+export function chatGrupal () {
   document.title=`CHAT GRUPAL`;
   const contentHome = document.createElement('div');
   
@@ -54,9 +47,8 @@ export function chatGrupal (props) {
         <p class="nombreParticipante">${item.name}</p>
         <p class ='grup-shorDescrip'>${item.shortDescription}</p>
       </div>`;
-      listadeParticipantes.appendChild(littleCard); //meter cada card al contenedor lateral//
+    listadeParticipantes.appendChild(littleCard); //meter cada card al contenedor lateral//
   });
- //meter contenedor lateral al main//
   htmlChatGroup.appendChild(listadeParticipantes);
   contentHome.appendChild(htmlChatGroup);
   

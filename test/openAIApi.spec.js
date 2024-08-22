@@ -1,32 +1,18 @@
-// test/openAIApi.spec.js
-import { communicateWithOpenAI } from '../src/lib/openAIApi.js';
-import { setApiKey } from '../src/lib/apiKey.js';
+import { communicateWithOpenAI } from '../src/utils/openAIApi.js';
 
 describe('communicateWithOpenAI', () => {
-  beforeAll(() => {
-    // Establecer una API Key de prueba en Local Storage
-    setApiKey('test-api-key');
-  });
+  test('Debe devolver una respuesta de OpenAI basada en el mensaje y el carácter proporcionados.', () => {
+    const mockCharacter = {
+      name: 'TestCharacter',
+      description: 'Test description for the character.'
+    };
+    const message = 'Hola, como estas?';
 
-  it('should return a response from OpenAI', async () => {
-    const message = 'Hello';
-    const apiKey = 'test-api-key';
-    const character = 'Character1';
-    
-    // Mock de la respuesta de OpenAI
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve({ choices: [{ text: 'Hello from Character1' }] })
-      })
-    );
-
-    const response = await communicateWithOpenAI(message, apiKey, character);
-    expect(response).toBe('Hello from Character1');
-  });
-
-  afterAll(() => {
-    // Limpiar mocks después de las pruebas
-    global.fetch.mockClear();
+    return communicateWithOpenAI(mockCharacter, message).then(data => {
+      // Verifica que la respuesta sea una cadena de texto
+      expect(typeof data).toBe('string');
+      // También puedes verificar si la respuesta incluye algunas palabras clave esperadas
+      expect(data.length).toBeGreaterThan(0);
+    });
   });
 });

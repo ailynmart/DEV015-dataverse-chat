@@ -5,19 +5,19 @@ import { communicateWithOpenAI } from "../lib/openAIApi.js";
 
 
 export function chat (props){//obtener un identificador con props ..para renderizar vista?
- // communicateWithOpenAI("hola");
+// communicateWithOpenAI("hola");
     
    
-    const chatVista = document.createElement('div');
-    chatVista.appendChild(header());
-      //Vinculamos el id del chat con el objeto correspondiente
-    const elementOPersonaje = data.find((item) => item.id === props.id);
-   // console.log(elementOPersonaje);
+  const chatVista = document.createElement('div');
+  chatVista.appendChild(header());
+  //Vinculamos el id del chat con el objeto correspondiente
+  const elementOPersonaje = data.find((item) => item.id === props.id);
+  // console.log(elementOPersonaje);
     
-    document.title = `Chat con ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
-    //creacion de LA ESTRUCTURA DEL CHAT
-    const htmlChat = document.createElement('div');
-    htmlChat.innerHTML=
+  document.title = `Chat con ${elementOPersonaje.name}`;//INTERPOLAMOS TAMBIEN EL NOMBRE DEL PERSONAJE.
+  //creacion de LA ESTRUCTURA DEL CHAT
+  const htmlChat = document.createElement('div');
+  htmlChat.innerHTML=
     `
    
       <div class='barra-perfil'>
@@ -49,34 +49,34 @@ export function chat (props){//obtener un identificador con props ..para renderi
       </div>
 
     `;
-    chatVista.appendChild(htmlChat);
-    //seleccionando
-    const botonEnviar = chatVista.querySelector("#boton-enviar");
-    const textaUSUARIO = chatVista.querySelector("#textarea-usuario");
-    const areaDEmensajes = chatVista.querySelector("#mensajes");
+  chatVista.appendChild(htmlChat);
+  //seleccionando
+  const botonEnviar = chatVista.querySelector("#boton-enviar");
+  const textaUSUARIO = chatVista.querySelector("#textarea-usuario");
+  const areaDEmensajes = chatVista.querySelector("#mensajes");
 
-    function mensajeAÑADIDO() {
-      const userMessage = document.createElement('div');
-      userMessage.innerHTML = textaUSUARIO.value;
-      areaDEmensajes.appendChild(userMessage);
-    };
-
-    function agregamosREPLY (reply) {
-      const userMessages = document.createElement('div');
-      userMessages.innerHTML = reply;
-      areaDEmensajes.appendChild(userMessages);
-    }
-
-    botonEnviar.addEventListener("click",() => {
-      mensajeAÑADIDO();
-      communicateWithOpenAI(elementOPersonaje, textaUSUARIO.value).then(reply => {
-        agregamosREPLY(reply)
-
-      }) 
-      textaUSUARIO.value='';
-
-    });
-    return chatVista;
+  function mensajeAÑADIDO() {
+    const userMessage = document.createElement('div');
+    userMessage.innerHTML = textaUSUARIO.value;
+    areaDEmensajes.appendChild(userMessage);
   }
+
+  function agregamosREPLY (reply) {
+    const userMessages = document.createElement('div');
+    userMessages.innerHTML = reply;
+    areaDEmensajes.appendChild(userMessages);
+  }
+
+  botonEnviar.addEventListener("click",() => {
+    mensajeAÑADIDO();
+    communicateWithOpenAI(elementOPersonaje, textaUSUARIO.value).then(reply => {
+      agregamosREPLY(reply)
+
+    }) 
+    textaUSUARIO.value='';
+
+  });
+  return chatVista;
+}
     
 export default chat;

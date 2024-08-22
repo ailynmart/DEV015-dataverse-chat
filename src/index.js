@@ -12,7 +12,7 @@ const routes = {
   "/": home,
   "/chat": chat,
   "/api-key": aPikey,
-  "/chat-group": chatGrupal, 
+  "/chat-Grupal": chatGrupal, 
 };
 
 setRoutes(routes);
@@ -25,7 +25,3 @@ window.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('popstate', () => {
   onUrlChange();
 });
-
-
-
-

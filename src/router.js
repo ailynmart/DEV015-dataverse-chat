@@ -11,8 +11,24 @@ export const setRoutes = (routes) => {
 
 const renderView = (pathname, props = {}) => {
   rootEl.innerHTML = '';
+
+  // Obtener la función de vista correspondiente a la ruta
   const viewRoute = ROUTES[pathname] || ROUTES['/error'];
+
+  // Verificar si viewRoute es una función
+  if (typeof viewRoute !== 'function') {
+    console.error(`No function found for route: ${pathname}`);
+    return;
+  }
+
   const componentHtml = viewRoute(props);
+
+  // Verificar que componentHtml sea un nodo HTML válido
+  if (!(componentHtml instanceof HTMLElement)) {
+    console.error(`The route function did not return a valid HTML element for: ${pathname}`);
+    return;
+  }
+
   return rootEl.appendChild(componentHtml);
 };
 
