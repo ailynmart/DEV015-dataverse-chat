@@ -2,7 +2,7 @@ import header from "../components/header.js";
 import { renderItems } from "../components/card.js";
 import data from "../data/dataset.js";
 import { filterData, sortData } from "../lib/dataFunctions.js";
-//import { computeAverageSpiciness, computeHottestDish, computeMildestDish, computeSpicinessLevels } from "../lib/dataFunctions.js";
+import { computeAverageSpiciness, computeHottestDish, computeMildestDish, computeSpicinessLevels } from "../lib/dataFunctions.js";
 
 export function home() {
   document.title = `HOME`;
@@ -98,10 +98,23 @@ export function home() {
   divFiltross.querySelector('#calculateButton').addEventListener('click', () => {
     const calculationType = divFiltross.querySelector('#calculationType').value;
     let result;
-    //checar esto para que funcione lo de los calculos, ya funciona el boton
-    if (calculationType === 'averageSpiciness')
-      console.log("hola")
 
+    // Verifica qué cálculo se debe realizar
+    if (calculationType === 'averageSpiciness') {
+      result = computeAverageSpiciness(filtrosPlato);
+    } else if (calculationType === 'hottestDish') {
+      const hottestDish = computeHottestDish(filtrosPlato);
+      result = `Platillo más picante: ${hottestDish.name} con nivel de picante ${hottestDish.spiciness}`;
+    } else if (calculationType === 'mildestDish') {
+      const mildestDish = computeMildestDish(filtrosPlato);
+      result = `Platillo menos picante: ${mildestDish.name} con nivel de picante ${mildestDish.spiciness}`;
+    } else if (calculationType === 'spicinessLevels') {
+      const levels = computeSpicinessLevels(filtrosPlato);
+      result = `Bajo: ${levels.mild}, Medio: ${levels.medium}, Alto: ${levels.hot}`;
+    }
+    console.log('Datos actuales:', filtrosPlato);
+    console.log('Resultado del cálculo:', result);
+    
     divFiltross.querySelector('#result').innerText = `Resultado: ${JSON.stringify(result)}`;
   });
 

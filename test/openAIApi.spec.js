@@ -21,7 +21,7 @@ describe('communicateWithOpenAI', () => {
           }
         ]
       })
-    });
+    }); 
 
     const elementoPersonaje = { name: 'Asistente', description: 'ayudante inteligente' };
     const message = 'Hola, ¿cómo estás?';

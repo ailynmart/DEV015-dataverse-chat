@@ -10,7 +10,8 @@ export default[
       "placeOrigen": "Sinaloa",
       "nivelSpicy": "Alto ",
       "typeOfMeat": "Mariscos",
-      "mainField": "Plato Principal"
+      "mainField": "Plato Principal",
+      
     },
       
   },
@@ -24,7 +25,8 @@ export default[
       "placeOrigen": "Oaxaca",
       "nivelSpicy": "Moderado",
       "typeOfMeat": "Pollo ",
-      "mainField": "Plato principal"
+      "mainField": "Plato principal",
+     
     },
       
   },
@@ -38,7 +40,7 @@ export default[
       "placeOrigen": "Puebla",
       "nivelSpicy": "Bajo",
       "typeOfMeat": "Res",
-      "mainField": "Plato principal"
+      "mainField": "Plato principal",
     },
       
   },
@@ -52,7 +54,8 @@ export default[
       "placeOrigen": "Jalisco",
       "nivelSpicy": "Moderado",
       "typeOfMeat": "Res",
-      "mainField": "Plato principal"
+      "mainField": "Plato principal",
+      
     },
       
   },
