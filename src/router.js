@@ -17,6 +17,7 @@ const renderView = (pathname, props = {}) => {
 
   // Verificar si viewRoute es una función
   if (typeof viewRoute !== 'function') {
+    // eslint-disable-next-line no-console
     console.error(`No function found for route: ${pathname}`);
     return;
   }
@@ -25,6 +26,7 @@ const renderView = (pathname, props = {}) => {
 
   // Verificar que componentHtml sea un nodo HTML válido
   if (!(componentHtml instanceof HTMLElement)) {
+    // eslint-disable-next-line no-console
     console.error(`The route function did not return a valid HTML element for: ${pathname}`);
     return;
   }

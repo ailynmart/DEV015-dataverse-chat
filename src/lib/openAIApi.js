@@ -9,6 +9,7 @@ export const communicateWithOpenAI = (elementOPersonaje, message) => {
   const urlAPIopenAI = "https://api.openai.com/v1/chat/completions";//2°endpoint(solicitud -->respuesta)apartir de los mensaje
 
   if (!obtenerApikey) {
+    // eslint-disable-next-line no-console
     console.error('No se encontro una API KEY')
     return Promise.reject(new Error("No se encontró una API key"));
   }
@@ -52,6 +53,7 @@ export const communicateWithOpenAI = (elementOPersonaje, message) => {
 
       return reply;
     })
+    // eslint-disable-next-line no-console
     .catch(error => console.error("Error de OpenAI:", error));
 }
 

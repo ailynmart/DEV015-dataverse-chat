@@ -1,8 +1,8 @@
 import header from "../components/header.js";
 import { renderItems } from "../components/card.js";
 import data from "../data/dataset.js";
-import { filterData, sortData }
-  from "../lib/dataFunctions.js";
+import { filterData, sortData } from "../lib/dataFunctions.js";
+//import { computeAverageSpiciness, computeHottestDish, computeMildestDish, computeSpicinessLevels } from "../lib/dataFunctions.js";
 
 export function home() {
   document.title = `HOME`;
@@ -93,23 +93,14 @@ export function home() {
     homeDiv.appendChild(renderItems(data));
   });
 
-
-
   /*ejemplo de marcia
   homeDiv.appendChild(divFiltross);*/
   divFiltross.querySelector('#calculateButton').addEventListener('click', () => {
     const calculationType = divFiltross.querySelector('#calculationType').value;
     let result;
     //checar esto para que funcione lo de los calculos, ya funciona el boton
-    if (calculationType === 'averageSpiciness') {
-      result = averageSpiciness(data);
-    } else if (calculationType === 'hottestDish') {
-      result = hottestDish(data);
-    } else if (calculationType === 'mildestDish') {
-      result = mildestDish(data);
-    } else if (calculationType === 'spicinessLevels') {
-      result = spicinessLevels(data);
-    }
+    if (calculationType === 'averageSpiciness')
+      console.log("hola")
 
     divFiltross.querySelector('#result').innerText = `Resultado: ${JSON.stringify(result)}`;
   });
@@ -117,7 +108,9 @@ export function home() {
 
 
 
+
+
   return homeDiv;
 
-};
+}
 export default home;

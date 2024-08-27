@@ -1,5 +1,5 @@
-
-
+// Aqui puedes agregar los datos que necesites para tus pruebas
+// al menos debe tener uno que se llame "data"
 export const data = [
   {
     id: "Salsa-verde",
@@ -73,10 +73,15 @@ export const data = [
     description: "La michelada es una popular bebida mexicana que combina cerveza con una mezcla de jugo de limón, salsas como la inglesa y la Tabasco, y diversas especias y condimentos, como sal, pimienta y salsa Maggi. Se sirve en un vaso escarchado con sal y a menudo con un toque de chile en polvo en el borde. Esta mezcla crea una bebida refrescante, ligeramente picante y ácida, ideal para los días calurosos y perfecta para acompañar mariscos, carnes asadas y botanas. La michelada es muy versátil y puede adaptarse al gusto individual con diferentes combinaciones de ingredientes.",
     imageUrl: "https://i0.wp.com/www.chicanoeats.com/wp-content/uploads/2019/05/IMG_9275-819x1024.jpg",
     facts: {
-      placeOrigen: "Mexico,Mexico ",
+      placeOrigen: "Mexico",
       nivelSpicy: "Alto",
       mainField: "Bebidas Picantes",
       typeOfMeat: "N/a" // Añadir esto si no aplica
     },
   }
 ];
+//En esta archivo puedes construir y exportar data "mock" para usar en los tests. Es mas fácil probar un arreglo de
+//5 elementos de un arreglo de 24, por eso vas a crear una muestra de la data que quieres probar. Como mínimo debes
+//exportar un variable se llama data, pero puedes definir y exportar mas si sea necesario para tus tests.
+
+

@@ -38,7 +38,7 @@ export const labels = () => {
     <button id="calculateButton">Calcular</button>
     <div id="result"></div>
     <ul id="data-list"></ul>`;
-  
+  //llamar de hacer una funcion aqui.
   return divFiltross;
 };
 

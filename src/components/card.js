@@ -4,15 +4,16 @@ import { navigateTo } from "../router.js";
 
 export const renderItems = (data) => {
   if (!Array.isArray(data)) {
+    // eslint-disable-next-line no-console
     console.error('Los datos proporcionados no son un array');
     return null;
-   
+
   }
 
   const itemsHTML = data.map(item => {
 
     const li = document.createElement('li');
-    li.setAttribute('itemtype','food');
+    li.setAttribute('itemtype', 'food');
     li.setAttribute('itemscope', true);
 
     li.innerHTML = `
@@ -45,3 +46,18 @@ export function updateResult(result) {
   document.querySelector('#result').textContent = result;
 }
 export default renderItems;
+
+// cards.js
+export function ChatCard() {
+  return `
+      <div class="contenedor-principal">
+          <div id="mensajes">
+              <div class="mensaje-enviado">Mensaje del usuario</div>
+              <div class="mensaje-recibido">Respuesta de la IA</div>
+              <!-- Más mensajes aquí -->
+          </div>
+          <textarea class="chat-User" placeholder="Escribe tu mensaje..."></textarea>
+          <button id="boton-enviar">Enviar</button>
+      </div>
+  `;
+}

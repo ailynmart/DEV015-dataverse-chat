@@ -1,10 +1,10 @@
-/*.estilo-tarjeta-chatIndiv{
+.estilo-tarjeta-chatIndiv{
     color: rgb(7, 61, 16);
     background: rgba(0, 0, 0, 0.685);
     margin: 50px;
     
     
-}*/
+}
 .barra-perfil{
     color: rgb(255, 254, 254);
     background: rgba(0, 0, 0, 0.699);
@@ -65,7 +65,7 @@
     resize: none;
     margin: 5px;
     padding: 20px;
-    border-color: blue;
+    border-color: rgb(255, 8, 0);
     border-radius: 10px;
 
 }
