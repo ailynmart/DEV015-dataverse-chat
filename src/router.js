@@ -1,4 +1,78 @@
+
 let ROUTES = {};
+let rootEl;
+
+export const setRootEl = (el) => {
+  rootEl = el; // asignar rootEl
+}
+
+export const setRoutes = (routes) => {
+/* if (typeof routes !== 'object' || routes === null) { // arroja errores si las rutas no son un objeto
+    throw new Error('ROUTES must be an object');
+  }
+  if (!routes['/error']) { //arrojar errores si las rutas no definen una ruta/error
+    throw new Error('A route for /error must be defined');
+  }*/
+  ROUTES = routes; // asignar ROUTES
+}
+
+const queryStringToObject = (queryString) => {
+  const urlParams = new URLSearchParams(queryString); // convertir query string a URLSearchParams
+  const objectParams = Object.fromEntries(urlParams); // convertir URLSearchParams a objetos
+  return objectParams; // retornar objetos
+}
+
+const renderView = (pathname, props = {}) => {
+  rootEl.innerHTML = ''; // Limpiar el elemento raíz
+
+  const viewFunction = ROUTES[pathname] || ROUTES['/error']; // Encuentra la vista correcta o la de error
+
+  const viewElement = viewFunction(props); // Renderizar la vista correcta pasando el valor de props
+  rootEl.appendChild(viewElement); // Añadir el elemento de vista al elemento raíz del DOM
+};
+
+
+export const navigateTo = (pathname, props = {}) => {
+  window.history.pushState( // actualizar el historial con pushState
+    {}, // el estado asociado con la nueva entrada de historial
+    '', // el título de la página (normalmente se deja vacío)
+    pathname // la nueva URL que aparece en la barra de direcciones
+  );
+  renderView(pathname, props); // renderizar la vista de pathname y props
+}
+
+export const onURLChange = (location) => {
+  const { pathname, search } = location; // encontrar la ubicación de pathname y los parámetros de search
+  const queryParams = queryStringToObject(search); // convertir search params a un objeto
+  renderView(pathname, queryParams); // renderizar la nueva vista de pathname y el objeto
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*let ROUTES = {};
 let rootEl;
 
 export const setRootEl = (el) => {
@@ -51,4 +125,4 @@ const queryStringToObject = (queryString) => {
   const urlParams = new URLSearchParams(queryString);
   const objectParams = Object.fromEntries(urlParams);
   return objectParams;
-};
+}; */

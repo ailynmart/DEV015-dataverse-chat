@@ -4,9 +4,14 @@ import data from "../data/dataset.js";
 import { filterData, sortData } from "../lib/dataFunctions.js";
 import { computeAverageSpiciness, computeHottestDish, computeMildestDish, computeSpicinessLevels } from "../lib/dataFunctions.js";
 
-export function home() {
-  document.title = `HOME`;
-  const homeDiv = document.createElement("div");
+export const Home = (props) => {
+  const el = document.createElement('div');
+  // Personaliza el contenido utilizando props
+  el.textContent = `¡Bienvenido a la página de inicio, ${props.name}!`;
+  // Opcionalmente, puedes ver el valor de props en la consola
+  console.log(props.id);
+  return el;
+};
   //...HEADER
   const headerElemen = header();
   homeDiv.appendChild(headerElemen);
@@ -125,5 +130,5 @@ export function home() {
 
   return homeDiv;
 
-}
+
 export default home;
